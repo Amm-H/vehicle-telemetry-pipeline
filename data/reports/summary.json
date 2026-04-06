@@ -1,8 +1,0 @@
-{
-  "total_rows": 33009,
-  "avg_speed_kmh": 75.84658729437426,
-  "max_speed_kmh": 337.0,
-  "avg_engine_rpm": 3909.8001454148866,
-  "hard_braking_events": 574,
-  "hard_acceleration_events": 4583
-}
