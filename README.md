@@ -51,7 +51,7 @@ python -m pytest
 ### Docker
 ```bash
 docker build -t vehicle-telemetry-pipeline .
-docker run --rm vehicle-telemetry-pipeline
+docker run --rm -v ${PWD}/data:/app/data vehicle-telemetry-pipeline
 ```
 
 ## Example Output
