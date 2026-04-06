@@ -1,18 +1,15 @@
 # Vehicle Telemetry Data Pipeline
 
-## Overview
-This project implements an end-to-end Python pipeline for vehicle telemetry data processing and analysis. It ingests raw telemetry, cleans and validates the signals, derives additional driving-performance metrics, detects braking events, and generates reports.
+End-to-end Python pipeline for ingesting, processing, and analyzing real Formula 1 telemetry data using the OpenF1 API.
 
-## Features
-- Raw telemetry ingestion from CSV
-- Data cleaning and normalization
-- Validation of automotive telemetry fields
-- Derived feature generation
-- Braking event detection
-- Summary report generation
-- Plot generation
-- Docker support
-- GitHub Actions automation
+## Key Features
+- Ingest real telemetry data (speed, RPM, throttle, brake, gear)
+- Clean and validate noisy time-series signals
+- Compute derived metrics (acceleration, braking intensity)
+- Detect braking events
+- Generate analytical reports and plots
+- Dockerized for reproducibility
+- Automated with GitHub Actions
 
 ## Project Structure
 ```text
@@ -57,19 +54,28 @@ docker build -t vehicle-telemetry-pipeline .
 docker run --rm vehicle-telemetry-pipeline
 ```
 
-## Outputs
-The pipeline generates:
-- cleaned telemetry parquet
-- processed telemetry parquet
-- braking event CSV
-- summary JSON
-- speed and RPM plots
+## Example Output
 
-## Example Use Case
-This project demonstrates how vehicle time-series signals can be processed in a structured pipeline similar to real automotive or motorsport data workflows.
+- Processed telemetry dataset
+- Detected braking events
+- Summary metrics (average speed, max RPM, etc.)
+- Time-series plots of speed and engine RPM
+
+![Speed Plot](docs/images/speed_over_time.png)
+![RPM Plot](docs/images/rpm_over_time.png)
+
+## Real Telemetry Integration
+
+This project uses the OpenF1 API to fetch real Formula 1 telemetry data, including:
+- Speed
+- Engine RPM
+- Throttle position
+- Brake signal
+- Gear selection
+
+The pipeline normalizes and validates these signals before analysis.
 
 ## Future Improvements
-- OpenF1 API ingestion
 - SQLite storage layer
 - anomaly detection
 - lap/session comparison
